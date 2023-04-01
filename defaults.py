@@ -1,7 +1,7 @@
 batch_size = 4
 
-num_workers = 2
+num_workers = 8
 
-num_epoch = 2
+num_epoch = 4
 
-model_path = './saved_models/sign_epoch_2.pth'
+model_path = './saved_models/sign.pth'
