@@ -15,12 +15,6 @@ if __name__ ==  '__main__':
 
     trainloader=loader(mode = "train", image_path = "./datasets/train")
 
-    if torch.cuda.is_available(): 
-        dev = "cuda:0" 
-    else: 
-        dev = "cpu" 
-
-    net = Net().to(device)
     print("Device:", device)
 
     start = torch.cuda.Event(enable_timing=True)
