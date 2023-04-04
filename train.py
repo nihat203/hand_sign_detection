@@ -17,6 +17,8 @@ if __name__ ==  '__main__':
 
     print("Device:", device)
 
+    net = Net().to(device)
+
     start = torch.cuda.Event(enable_timing=True)
     end = torch.cuda.Event(enable_timing=True)
 
