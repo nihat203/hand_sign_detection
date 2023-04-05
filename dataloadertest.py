@@ -4,7 +4,7 @@ from dataloader import *
 from show import imshow
 
 if __name__ ==  '__main__':
-  trainloader=loader(mode = "train", image_path = "./datasets/train")
+  trainloader=loader(mode = "train")
 
   dataiter = iter(trainloader)
   images, labels = dataiter.next()

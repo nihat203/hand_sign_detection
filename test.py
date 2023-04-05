@@ -9,7 +9,7 @@ from device import device
 
 if __name__ ==  '__main__':
 
-	testloader=loader(mode = "test", image_path = "./datasets/test")
+	testloader=loader(mode = "test")
 
 	net = Net().to(device)
 	net.load_state_dict(torch.load(model_path))

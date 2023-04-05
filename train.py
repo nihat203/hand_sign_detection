@@ -13,7 +13,7 @@ from device import device
 
 if __name__ ==  '__main__':
 
-    trainloader=loader(mode = "train", image_path = "./datasets/train")
+    trainloader=loader(mode = "train")
 
     print("Device:", device)
 
