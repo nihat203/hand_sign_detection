@@ -22,7 +22,7 @@ def preprocess(frame):
     frame = cv2.resize(frame, (200, 200))
     frame = transform(frame)
     frame = frame.to(device)
-    frame = frame.unsqueeze(0
+    frame = frame.unsqueeze(0)
     return frame
 
 while True:
