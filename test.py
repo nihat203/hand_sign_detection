@@ -7,11 +7,13 @@ from models.model import Net
 from defaults import *
 from labels import *
 from device import device
-from utils import metrics
+from utils import metrics, acc
+from sklearn.metrics import accuracy_score
 
 def val(model, data_val, loss_function, epoch):
 
     f1_score = 0
+    accuracy = 0
     data_iterator = enumerate(data_val)
     with torch.no_grad():
 
@@ -29,13 +31,13 @@ def val(model, data_val, loss_function, epoch):
 
             #pred = pred.softmax(dim=1)
             f1_score += metrics(pred, label.to(device))
-
+            accuracy += acc(pred, label.to(device))
             total_loss += loss.item()
             tq.update(1)
     
     
     print("F1 score: ", f1_score/len(data_val))
-
+    print("Accuracy: ", accuracy/len(data_val))
     tq.close()
 
     return None
