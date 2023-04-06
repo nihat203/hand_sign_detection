@@ -3,7 +3,6 @@ import torch.nn as nn
 from tqdm import tqdm
 from torchmetrics.classification import MulticlassF1Score
 from torchmetrics.functional import accuracy
-from sklearn.metrics import accuracy_score
 
 from dataloader import loader
 from models.model import Net
@@ -44,10 +43,10 @@ def val(model, data_val, loss_function, epoch):
             total_loss += loss.item()
             tq.update(1)
     
-    
-    print("F1 score: ", f1_score/len(data_val))
-    print("Accuracy: ", accuracy/len(data_val))
     tq.close()
+
+    print("\n\nF1 score: ", str(round((f1_score.item()*100)/len(data_val),2))+'%')
+    print("Accuracy: ", str(round((accuracy.item()*100)/len(data_val),2))+'%\n')
 
     return None
 

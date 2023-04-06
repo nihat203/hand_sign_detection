@@ -95,12 +95,14 @@ def loader(mode = "train", image_path = "datasets/", label_path = "datasets/"):
 	return res
 
 
-loader=loader(mode = "test")
+if __name__ ==  '__main__':
 
-dataiter = iter(loader)
-images, labels = dataiter.next()
-img = torchvision.utils.make_grid(images) / 2 + 0.5
-plt.imshow(np.transpose(img.numpy(), (1, 2, 0)))
-plt.show()
+	loader=loader(mode = "test")
 
-print(' '.join('%s' % classes[labels[j]] for j in range(batch_size)))
+	dataiter = iter(loader)
+	images, labels = dataiter.next()
+	img = torchvision.utils.make_grid(images) / 2 + 0.5
+	plt.imshow(np.transpose(img.numpy(), (1, 2, 0)))
+	plt.show()
+
+	print(' '.join('%s' % classes[labels[j]] for j in range(batch_size)))
