@@ -1,12 +1,23 @@
 import torch
 import torch.nn as nn
 from tqdm import tqdm
+from torchmetrics.classification import MulticlassF1Score
+from torchmetrics.functional import accuracy
+from sklearn.metrics import accuracy_score
 
 from dataloader import loader
 from models.model import Net
 from defaults import *
-from utils import metrics, acc
-from sklearn.metrics import accuracy_score
+
+def metrics(preds, target):
+    metr = MulticlassF1Score(num_classes=29).to(device)
+
+    return metr(preds, target)
+
+def acc(preds, target):
+    acc = accuracy(preds, target, num_classes=29, task="multiclass").to(device)
+
+    return acc
 
 def val(model, data_val, loss_function, epoch):
 

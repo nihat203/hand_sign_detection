@@ -5,7 +5,7 @@ batch_size = 4
 
 num_workers = 8
 
-num_epoch = 4
+num_epoch = 1
 
 model_path = './saved_models/sign.pth'
 
@@ -17,6 +17,4 @@ device = torch.device(dev)
 
 classes=("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "del", "nothing", "space")
 
-transform = transforms.Compose(
-    [transforms.ToTensor(),
-     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])

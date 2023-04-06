@@ -5,8 +5,11 @@ from PIL import Image
 from torchvision import transforms
 import os
 from torch.utils.data import Dataset
+import numpy as np
+import matplotlib.pyplot as plt
 
 from defaults import *
+
 
 class custom_dataset(Dataset):
 
@@ -90,3 +93,14 @@ def loader(mode = "train", image_path = "datasets/", label_path = "datasets/"):
 		res = torch.utils.data.DataLoader(resset, batch_size=batch_size, shuffle=False, num_workers=num_workers)
 
 	return res
+
+
+loader=loader(mode = "test")
+
+dataiter = iter(loader)
+images, labels = dataiter.next()
+img = torchvision.utils.make_grid(images) / 2 + 0.5
+plt.imshow(np.transpose(img.numpy(), (1, 2, 0)))
+plt.show()
+
+print(' '.join('%s' % classes[labels[j]] for j in range(batch_size)))
