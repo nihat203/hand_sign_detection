@@ -13,7 +13,6 @@ from defaults import *
 
 class custom_dataset(Dataset):
 
-    # initialize your dataset class
     def __init__(self, mode ="train", tr = None, image_path = "datasets/", label_path = "datasets/"):
         self.mode = mode 
         self.image_path = image_path
@@ -49,25 +48,17 @@ class custom_dataset(Dataset):
 
 
     def __getitem__(self, index):
-        # getitem is required field for pytorch dataloader. Check the documentation
 
         image = Image.open(self.image_path+self.mode+'/' +self.image_list[index])
-        #image.show()
         label = self.labels[index]
         label = self.parse_labels(label)
 
         if(self.tr):
             image = self.tr(image)
-        
-        transform = transforms.Compose(
-    [transforms.ToTensor(),
-     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
         image = transform(image)
-
         label = torch.as_tensor(label)
 
-        #print(label)
         return image, label
     
 

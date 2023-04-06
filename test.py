@@ -37,7 +37,6 @@ def val(model, data_val, loss_function, epoch):
             
             loss = loss_function(pred.to(device), label.to(device))
 
-            #pred = pred.softmax(dim=1)
             f1_score += metrics(pred, label.to(device))
             accuracy += acc(pred, label.to(device))
             total_loss += loss.item()
