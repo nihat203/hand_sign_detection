@@ -6,9 +6,6 @@ import torch.nn as nn
 from models.model import Net
 from dataloader import loader
 from defaults import *
-from transforms import *    
-from labels import *
-from device import device
 
 
 if __name__ ==  '__main__':

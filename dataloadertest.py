@@ -1,5 +1,4 @@
 from defaults import *
-from labels import *
 from dataloader import *
 from show import imshow
 

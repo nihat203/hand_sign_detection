@@ -5,8 +5,6 @@ from tqdm import tqdm
 from dataloader import loader
 from models.model import Net
 from defaults import *
-from labels import *
-from device import device
 from utils import metrics, acc
 from sklearn.metrics import accuracy_score
 
